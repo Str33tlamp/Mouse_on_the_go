@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- EditText for IPv4 address input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/editTextIpAddress"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:hint="Введите IP адрес"
+            android:inputType="phone"
+            android:maxLength="15"/>
+        <EditText
+            android:id="@+id/editTextPort"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Порт"
+            android:inputType="number" />
+    </LinearLayout>
+    <!-- CheckBox for user selection -->
+    <CheckBox
+        android:id="@+id/checkBoxOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Использовать кнопки 4,5" />
+</LinearLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main">
+    <!-- Верхняя панель для настроек -->
+    <LinearLayout
+        android:id="@+id/buttonSettingsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:background="#A9A9A9"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <Button
+            android:id="@+id/buttonMacros"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Макросы"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#777777"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Настройки"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#777777"/>
+    </LinearLayout>
+
+    <!-- Главная вкладка с кнопками управления -->
+    <LinearLayout
+        android:id="@+id/mainButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Верхний ряд -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:padding="5dp"
+                android:id="@+id/buttonUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вверх" />
+        </LinearLayout>
+
+        <!-- Средний ряд -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintGuide_percent="0.5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <Button
+                android:padding="5dp"
+                android:id="@+id/buttonLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Налево"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:padding="5dp"
+                android:id="@+id/buttonLMB"
+                android:layout_width="58dp"
+                android:layout_height="200dp"
+                android:text="ЛКМ"
+                app:layout_constraintStart_toEndOf="@id/buttonLeft"
+                app:layout_constraintEnd_toStartOf="@id/centerButtonGroup"
+                app:layout_constraintTop_toTopOf="@id/guideline"
+                app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+
+            <LinearLayout
+                android:id="@+id/centerButtonGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/buttonLMB"
+                app:layout_constraintEnd_toStartOf="@id/buttonRMB"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <Button
+                    android:padding="5dp"
+                    android:id="@+id/buttonScrollUp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Колесо Вверх" />
+
+                <Button
+                    android:padding="5dp"
+                    android:id="@+id/buttonMMB"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="СКМ" />
+
+                <Button
+                    android:padding="5dp"
+                    android:id="@+id/buttonScrollDown"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Колесо Вниз" />
+            </LinearLayout>
+
+            <Button
+                android:padding="5dp"
+                android:id="@+id/buttonRMB"
+                android:layout_width="58dp"
+                android:layout_height="200dp"
+                android:text="ПКМ"
+                app:layout_constraintStart_toEndOf="@id/centerButtonGroup"
+                app:layout_constraintEnd_toStartOf="@id/buttonRight"
+                app:layout_constraintTop_toTopOf="@id/guideline"
+                app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+
+            <Button
+                android:padding="5dp"
+                android:id="@+id/buttonRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Направо"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Нижний ряд -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:padding="5dp"
+                android:id="@+id/buttonDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вниз" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Дополнительный кнопки, убранные по умолчанию -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainButtonLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:padding="5dp"
+            android:id="@+id/buttonMouse4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:visibility="gone"/>
+
+        <Button
+            android:padding="5dp"
+            android:id="@+id/buttonMouse5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:visibility="gone"/>
+    </LinearLayout>
+    <!--Кнопка reset-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainButtonLayout"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_alignParentEnd="true">
+        <Button
+            android:padding="5dp"
+            android:id="@+id/buttonReset"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="reset"/>
+    </LinearLayout>
+</RelativeLayout>
